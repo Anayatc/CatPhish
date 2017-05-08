@@ -12,3 +12,4 @@ How the app will work:
     6. return whether or not it is a match,
     7. if not prompt the user to report it by completing a form which sends an email to phishing related email address
        for the company in question.
+
