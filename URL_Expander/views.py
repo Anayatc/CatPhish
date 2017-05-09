@@ -3,5 +3,5 @@ from django.template import Context, loader
 
 
 def index(request):
-    template = loader.get_template('CyberPhish/URL_Expander/templates/index.html')
+    template = loader.get_template('templates/index.html')
     return HttpResponse(template.render())
