@@ -28,7 +28,9 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    data_list = [i for i in w.text.split('\n')]
+    print(w.domain)
+
+
 
 
 print(url_resolve(url))
