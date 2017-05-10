@@ -1,6 +1,6 @@
 import requests
 from urllib.parse import urlparse
-import whois
+import whois, ipwhois
 
 url = 'http://amzn.to/2pfDiJE'
 print(url)
@@ -25,9 +25,8 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    print(w.text)
-    w.text.find(w.text)
-
+    return w.text
+    ipwhois.IPWhois
 
 print(url_resolve(url))
 
