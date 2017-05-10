@@ -1,7 +1,9 @@
 import requests
 from urllib.parse import urlparse
 import whois
+
 import re
+
 
 url = 'http://amzn.to/2pfDiJE'
 print(url)
@@ -18,7 +20,7 @@ def url_resolve(short_url):
 def domain_name():
     final_dest = url_resolve(url)
     parsed_uri = urlparse(final_dest)
-    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    domain = '{uri.netloc}/'.format(uri=parsed_uri)
     return domain
 
 
@@ -26,11 +28,7 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    print(w.text)
-    print([i for i in w.text.split('\n')])
-    return re.findall('Registrant', w.text)
-
-
+    data_list = [i for i in w.text.split('\n')]
 
 
 print(url_resolve(url))
