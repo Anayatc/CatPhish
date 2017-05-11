@@ -37,7 +37,7 @@ def who_is():
     domain = domain_name()
     w = whois.whois(domain)
     print(w)
-    return w.name
+    return w.name, w.domain_name, w.registrar
 
 print(add_scheme(url))
 print(url_resolve())
