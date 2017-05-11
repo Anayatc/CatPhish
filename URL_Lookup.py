@@ -2,7 +2,7 @@ import requests
 from urllib.parse import urlparse
 import whois
 
-url = 'ow.ly/i5AX30bCN5s'
+url = 'ow.ly/NovU30braqh'
 print(url)
 
 

@@ -1,1 +1,3 @@
-{}
+{
+  "tests/test_URL_Lookup.py::test_url_resolve": true
+}
