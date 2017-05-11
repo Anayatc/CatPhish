@@ -2,33 +2,33 @@ import requests
 from urllib.parse import urlparse
 import whois
 
-
-
-url = 'http://ow.ly/i5AX30bCN5s'
+url = 'ow.ly/i5AX30bCN5s'
 print(url)
 
 
 # add scheme to input url if not already there
 def add_scheme(short_url):
-    p = urlparse(short_url, 'http')
-    netloc = p.netloc or p.path
-    path = p.path if p.netloc else ''
-    if not netloc.startswith('www.'):
-        netloc = 'www.' + netloc
-    p =
+    if url.startswith('http://') or url.startswith('https://'):
+        return short_url
+    if url.startswith('www.'):
+        return 'http://' + short_url
+    else:
+        return 'http://' + short_url
+
 
 # takes url as input and returns full url if url has been shortened.
-def url_resolve(short_url):
+def url_resolve():
+    url_with_scheme = add_scheme(url)
     session = requests.Session()
-    resp = session.head(short_url, allow_redirects=True)
+    resp = session.head(url_with_scheme, allow_redirects=True)
     return resp.url
 
 
 # takes the expanded url from url_resolve and returns just the domain name.
 def domain_name():
-    final_dest = url_resolve(url)
+    final_dest = url_resolve()
     parsed_uri = urlparse(final_dest)
-    domain = '{uri.netloc}/'.format(uri=parsed_uri)
+    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
 
 
@@ -39,9 +39,7 @@ def who_is():
     print(w)
     return w.name
 
-
-
-
-print(url_resolve(url))
+print(add_scheme(url))
+print(url_resolve())
 print(domain_name())
 print(who_is())
