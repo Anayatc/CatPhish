@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import whois
 from main import *
 
-url = ''
+url = 'goo.gl'
 print(url)
 
 
