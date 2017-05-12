@@ -2,7 +2,7 @@ import requests
 from urllib.parse import urlparse
 import whois
 
-url = 'ow.ly/NovU30braqh'
+url = 'https://bitbucket.org/richardpenman/pywhois/overview'
 print(url)
 
 

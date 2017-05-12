@@ -21,7 +21,7 @@ def test_add_scheme():
 
 def test_who_is():
     resolve = add_scheme('ow.ly/i5AX30bCN5s')
-    assert url_resolve() == 'https://bitbucket.org/richardpenman/pywhois/overview'
+    assert resolve == 'https://bitbucket.org/richardpenman/pywhois/overview'
 
 
 
