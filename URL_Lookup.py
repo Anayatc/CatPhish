@@ -1,8 +1,9 @@
 import requests
 from urllib.parse import urlparse
 import whois
+from main import *
 
-url = 'https://bitbucket.org/richardpenman/pywhois/overview'
+url = ''
 print(url)
 
 
