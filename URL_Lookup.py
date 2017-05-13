@@ -1,25 +1,24 @@
 import requests
 from urllib.parse import urlparse
 import whois
-from main import *
 
-url = 'goo.gl'
-print(url)
+
+start_url = 'goo.gl'
 
 
 # add scheme to input url if not already there
-def add_scheme(short_url):
+def add_scheme(url):
     if url.startswith('http://') or url.startswith('https://'):
-        return short_url
+        return url
     if url.startswith('www.'):
-        return 'http://' + short_url
+        return 'http://' + url
     else:
-        return 'http://' + short_url
+        return 'http://' + url
 
 
 # takes url as input and returns full url if url has been shortened.
 def url_resolve():
-    url_with_scheme = add_scheme(url)
+    url_with_scheme = add_scheme(start_url)
     session = requests.Session()
     resp = session.head(url_with_scheme, allow_redirects=True)
     return resp.url
@@ -40,7 +39,7 @@ def who_is():
     print(w)
     return w.name, w.domain_name, w.registrar
 
-print(add_scheme(url))
+print(add_scheme(start_url))
 print(url_resolve())
 print(domain_name())
 print(who_is())
