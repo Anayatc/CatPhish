@@ -1,6 +1,9 @@
 import requests
 from urllib.parse import urlparse
 import whois
+from main import *
+
+start_url = user_url
 
 
 # add scheme to input url if not already there

@@ -10,10 +10,14 @@ def index():
 
 
 @app.route("/send", methods=['GET', 'POST'])
-def send():
+def user_url():
+    start_url = request.form['start_URL']
+    return start_url
 
+
+def send():
     if request.method == 'POST':
-        start_url = request.form['start_URL']
+
         add_scheme(start_url)
         url_resolve()
         domain_name()
