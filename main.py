@@ -13,11 +13,12 @@ def index():
 def send():
 
     if request.method == 'POST':
-        short_url = request.form['start_URL']
-        add_scheme(short_url)
+        start_url = request.form['start_URL']
+        add_scheme(start_url)
         url_resolve()
         domain_name()
-        return who_is()
+        final = who_is()
+        return render_template("send.html")
 
         # return render_template("send.html")
 
