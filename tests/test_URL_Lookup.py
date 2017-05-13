@@ -1,4 +1,3 @@
-import py.test
 from URL_Lookup import *
 
 

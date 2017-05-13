@@ -3,9 +3,6 @@ from urllib.parse import urlparse
 import whois
 
 
-start_url = 'goo.gl'
-
-
 # add scheme to input url if not already there
 def add_scheme(url):
     if url.startswith('http://') or url.startswith('https://'):
@@ -39,7 +36,3 @@ def who_is():
     print(w)
     return w.name, w.domain_name, w.registrar
 
-print(add_scheme(start_url))
-print(url_resolve())
-print(domain_name())
-print(who_is())
