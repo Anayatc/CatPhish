@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import whois
 from main import *
 
-start_url = user_url
+start_url = 'http://bit.ly/2rfhLOP'
 
 
 # add scheme to input url if not already there
@@ -36,7 +36,7 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    print(w)
+    print(w.text)
     return w.name, w.domain_name, w.registrar
 
 print(add_scheme(start_url))
