@@ -18,7 +18,7 @@ def user_url():
 def send():
     if request.method == 'POST':
 
-        add_scheme(user_url)
+        add_scheme(user_url())
         url_resolve()
         domain_name()
         final = who_is()
