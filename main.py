@@ -22,6 +22,7 @@ def send():
         url_resolve()
         domain_name()
         final = who_is()
+        print(final)
         return render_template("send.html")
 
         # return render_template("send.html")
