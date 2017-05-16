@@ -35,6 +35,7 @@ def url_resolve():
     return resp.url
 
 
+# takes the expanded url and returns full url if it has been shortened or redirected
 def domain_name():
     final_dest = url_resolve()
     parsed_uri = urlparse(final_dest)
@@ -42,6 +43,7 @@ def domain_name():
     return domain
 
 
+# returns the who.is information for the domain
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
