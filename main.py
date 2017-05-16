@@ -26,6 +26,11 @@ def url_resolve():
     resp = session.head(url_with_scheme, allow_redirects=True)
     return resp.url
 
+def domain_name():
+    final_dest = url_resolve()
+    parsed_uri = urlparse(final_dest)
+    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    return domain
 
 def send():
     if request.method == 'POST':
