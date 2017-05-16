@@ -38,5 +38,4 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    print(w.text)
     return w.name, w.domain_name, w.registrar, w.text
