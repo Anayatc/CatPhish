@@ -11,8 +11,12 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/send>", methods=['GET', 'POST'])
-start_url = request.form['start_URL']
+@app.route("/send", methods=['GET', 'POST'])
+def start():
+    start_url = request.form['start_URL']
+    return start_url
+
+
 def add_scheme(url):
     if url.startswith('http://') or url.startswith('https://'):
         return url
@@ -21,17 +25,20 @@ def add_scheme(url):
     else :
         return 'http://' + url
 
+
 def url_resolve():
     url_with_scheme = add_scheme(start_url)
     session =  requests.Session()
     resp = session.head(url_with_scheme, allow_redirects=True)
     return resp.url
 
+
 def domain_name():
     final_dest = url_resolve()
     parsed_uri = urlparse(final_dest)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
+
 
 def who_is():
     domain = domain_name()
@@ -40,15 +47,14 @@ def who_is():
     return w.name, w.domain_name, w.registrar
 
 
-
 def send():
     if request.method == 'POST':
-        add_scheme(start_url)
+        add_scheme(start)
         url_resolve()
         domain_name()
-        who_is()
+        final = who_is()
 
-        return render_template("send.html")
+        return render_template("send.html"), final
 
         # return render_template("send.html")
 
