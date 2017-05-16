@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 from urllib.parse import  urlparse
+import whois
 
 app = Flask(__name__)
 
@@ -10,7 +11,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/send/>", methods=['GET', 'POST'])
+@app.route("/send>", methods=['GET', 'POST'])
 start_url = request.form['start_URL']
 def add_scheme(url):
     if url.startswith('http://') or url.startswith('https://'):
@@ -31,6 +32,14 @@ def domain_name():
     parsed_uri = urlparse(final_dest)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
+
+def who_ia():
+    domain = domain_name()
+    w = whois.whois(domain)
+    print(w.text)
+    return w.name, w.domain_name, w.registrar
+
+
 
 def send():
     if request.method == 'POST':
