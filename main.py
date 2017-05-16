@@ -17,8 +17,6 @@ def send():
         url_resolve(start_url)
         domain_name()
         final = who_is()
-        print(final)
-
         return render_template("send.html", final=final)
 
     else:
