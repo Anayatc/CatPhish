@@ -12,12 +12,14 @@ def url_resolve(url):
         global url_with_scheme
         url_with_scheme = resp.url
         return url_with_scheme
+
     if url.startswith('www.'):
         url = 'http://' + url
         session = requests.Session()
         resp = session.head(url, allow_redirects=True)
         url_with_scheme = resp.url
         return url_with_scheme
+
     else:
         url = 'http://' + url
         session = requests.Session()
@@ -38,4 +40,10 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    return w.name, w.domain_name, w.registrar, w.text
+    return w.name, w.domain_name, w.registrar, w.org, w.emails
+
+"""
+print(url_resolve('amazon.com'))
+print(domain_name())
+print(who_is())
+"""

@@ -21,8 +21,6 @@ def send():
 
         return render_template("send.html", final=final)
 
-        # return render_template("send.html")
-
     else:
         return render_template("index.html")
 
