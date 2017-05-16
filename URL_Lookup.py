@@ -1,7 +1,6 @@
 import requests
 from urllib.parse import urlparse
 import whois
-from main import *
 
 start_url = 'http://bit.ly/2rfhLOP'
 
