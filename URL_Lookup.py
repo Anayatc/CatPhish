@@ -1,32 +1,34 @@
 import requests
 from urllib.parse import urlparse
 import whois
-from main import *
-
-start_url = 'goo.gl/DMJdwc'
-
-
-# add scheme to input url if not already there
-def add_scheme(url):
-    if url.startswith('http://') or url.startswith('https://'):
-        return url
-    if url.startswith('www.'):
-        return 'http://' + url
-    else:
-        return 'http://' + url
 
 
 # takes url as input and returns full url if url has been shortened.
-def url_resolve():
-    url_with_scheme = add_scheme(start_url)
-    session = requests.Session()
-    resp = session.head(url_with_scheme, allow_redirects=True)
-    return resp.url
+def url_resolve(url):
+
+    if url.startswith('http://') or url.startswith('https://'):
+        session = requests.Session()
+        resp = session.head(url, allow_redirects=True)
+        global url_with_scheme
+        url_with_scheme = resp.url
+        return url_with_scheme
+    if url.startswith('www.'):
+        url = 'http://' + url
+        session = requests.Session()
+        resp = session.head(url, allow_redirects=True)
+        url_with_scheme = resp.url
+        return url_with_scheme
+    else:
+        url = 'http://' + url
+        session = requests.Session()
+        resp = session.head(url, allow_redirects=True)
+        url_with_scheme = resp.url
+        return url_with_scheme
 
 
 # takes the expanded url from url_resolve and returns just the domain name.
 def domain_name():
-    final_dest = url_resolve()
+    final_dest = url_resolve(url_with_scheme)
     parsed_uri = urlparse(final_dest)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
@@ -38,8 +40,3 @@ def who_is():
     w = whois.whois(domain)
     print(w.text)
     return w.name, w.domain_name, w.registrar
-
-print(add_scheme('goo.gl/DMJdwc'))
-print(url_resolve())
-print(domain_name())
-print(who_is())

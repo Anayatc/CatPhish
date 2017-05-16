@@ -14,8 +14,7 @@ def send():
 
     if request.method == 'POST':
         start_url = request.form['start_URL']
-        add_scheme(start_url)
-        url_resolve()
+        url_resolve(start_url)
         domain_name()
         final = who_is()
         print(final)
@@ -27,6 +26,10 @@ def send():
     else:
         return render_template("index.html")
 
+
+def url():
+    start_url = request.form['start_URL']
+    return start_url
 
 if __name__ == "__main__":
     app.run()
