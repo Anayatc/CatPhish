@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+import requests
+from urllib.parse import  urlparse
 from URL_Lookup import *
 
 app = Flask(__name__)
