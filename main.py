@@ -17,6 +17,7 @@ def start():
     return start_url
 
 
+# prepends http to input url if not already prepended
 def add_scheme(url):
     if url.startswith('http://') or url.startswith('https://'):
         return url
@@ -26,9 +27,10 @@ def add_scheme(url):
         return 'http://' + url
 
 
+# takes url as input and returns full url if url has been shortened
 def url_resolve():
     url_with_scheme = add_scheme(start)
-    session =  requests.Session()
+    session = requests.Session()
     resp = session.head(url_with_scheme, allow_redirects=True)
     return resp.url
 
