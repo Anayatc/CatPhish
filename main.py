@@ -20,6 +20,12 @@ def add_scheme(url):
     else :
         return 'http://' + url
 
+def url_resolve():
+    url_with_scheme = add_scheme(start_url)
+    session =  requests.Session()
+    resp = session.head(url_with_scheme, allow_redirects=True)
+    return resp.url
+
 
 def send():
     if request.method == 'POST':
