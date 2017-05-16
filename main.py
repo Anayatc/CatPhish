@@ -27,7 +27,7 @@ def add_scheme(url):
 
 
 def url_resolve():
-    url_with_scheme = add_scheme(start_url)
+    url_with_scheme = add_scheme(start)
     session =  requests.Session()
     resp = session.head(url_with_scheme, allow_redirects=True)
     return resp.url
