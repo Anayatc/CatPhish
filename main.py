@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import requests
 from urllib.parse import  urlparse
-from URL_Lookup import *
 
 app = Flask(__name__)
 
@@ -11,20 +10,20 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/send", methods=['GET', 'POST'])
-def user_url():
-    start_url = request.form['start_URL']
-    return start_url
+@app.route("/send/>", methods=['GET', 'POST'])
+start_url = request.form['start_URL']
+def add_scheme(url):
+    if url.startswith('http://') or url.startswith('https://'):
+        return url
+    if url.startswith('www.'):
+        return 'http://' + url
+    else :
+        return 'http://' + url
 
 
 def send():
     if request.method == 'POST':
 
-        add_scheme(user_url())
-        url_resolve()
-        domain_name()
-        final = who_is()
-        print(final)
         return render_template("send.html")
 
         # return render_template("send.html")
