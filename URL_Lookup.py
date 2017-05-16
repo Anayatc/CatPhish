@@ -1,8 +1,9 @@
 import requests
 from urllib.parse import urlparse
 import whois
+from main import *
 
-start_url = 'http://ow.ly/Fl1f30bLpId'
+start_url = 'goo.gl/DMJdwc'
 
 
 # add scheme to input url if not already there
@@ -38,7 +39,7 @@ def who_is():
     print(w.text)
     return w.name, w.domain_name, w.registrar
 
-print(add_scheme(start_url))
+print(add_scheme('goo.gl/DMJdwc'))
 print(url_resolve())
 print(domain_name())
 print(who_is())

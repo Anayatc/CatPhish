@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request
-import requests
-from urllib.parse import  urlparse
-import whois
+from URL_Lookup import *
 
 app = Flask(__name__)
 
@@ -12,53 +10,17 @@ def index():
 
 
 @app.route("/send", methods=['GET', 'POST'])
-def start():
-    start_url = request.form['start_URL']
-    return start_url
-
-
-# prepends http to input url if not already prepended
-def add_scheme(url):
-    if url.startswith('http://') or url.startswith('https://'):
-        return url
-    if url.startswith('www.'):
-        return 'http://' + url
-    else :
-        return 'http://' + url
-
-
-# takes url as input and returns full url if url has been shortened
-def url_resolve():
-    url_with_scheme = add_scheme(start)
-    session = requests.Session()
-    resp = session.head(url_with_scheme, allow_redirects=True)
-    return resp.url
-
-
-# takes the expanded url and returns full url if it has been shortened or redirected
-def domain_name():
-    final_dest = url_resolve()
-    parsed_uri = urlparse(final_dest)
-    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
-    return domain
-
-
-# returns the who.is information for the domain
-def who_is():
-    domain = domain_name()
-    w = whois.whois(domain)
-    print(w.text)
-    return w.name, w.domain_name, w.registrar
-
-
 def send():
+
     if request.method == 'POST':
-        add_scheme(start)
+        start_url = request.form['start_URL']
+        add_scheme(start_url)
         url_resolve()
         domain_name()
         final = who_is()
+        print(final)
 
-        return render_template("send.html"), final
+        return render_template("send.html", final=final)
 
         # return render_template("send.html")
 
