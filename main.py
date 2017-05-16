@@ -33,7 +33,7 @@ def domain_name():
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
 
-def who_ia():
+def who_is():
     domain = domain_name()
     w = whois.whois(domain)
     print(w.text)
@@ -43,6 +43,10 @@ def who_ia():
 
 def send():
     if request.method == 'POST':
+        add_scheme(start_url)
+        url_resolve()
+        domain_name()
+        who_is()
 
         return render_template("send.html")
 
