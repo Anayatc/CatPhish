@@ -2,7 +2,7 @@ import requests
 from urllib.parse import urlparse
 import whois
 
-start_url = 'http://bit.ly/2rfhLOP'
+start_url = 'http://ow.ly/Fl1f30bLpId'
 
 
 # add scheme to input url if not already there
