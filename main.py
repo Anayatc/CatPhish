@@ -14,6 +14,7 @@ def send():
 
     if request.method == 'POST':
         start_url = request.form['start_URL']
+        sender = request.form['sender']
         url_resolve(start_url)
         domain_name()
         final = who_is()
