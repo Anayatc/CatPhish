@@ -17,7 +17,8 @@ def send():
         sender = request.form['sender']
         url_resolve(start_url)
         domain_name()
-        final = who_is()
+        who_is()
+        final = check_sender(sender)
         return render_template("send.html", final=final)
 
     else:

@@ -44,12 +44,17 @@ def who_is():
 
 
 # check if sender matches who.is data
-def check_sender():
-    pass
+def check_sender(sender):
+    who_is_data = who_is()
+    if sender in who_is_data:
+        return True
+    else:
+        return False
 
 
-"""
+
 print(url_resolve('amazon.com'))
 print(domain_name())
 print(who_is())
-"""
+print(check_sender('amazon'))
+
