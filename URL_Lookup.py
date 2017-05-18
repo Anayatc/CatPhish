@@ -42,6 +42,12 @@ def who_is():
     w = whois.whois(domain)
     return w.name, w.domain_name, w.registrar, w.org, w.emails
 
+
+# check if sender matches who.is data
+def check_sender():
+    pass
+
+
 """
 print(url_resolve('amazon.com'))
 print(domain_name())
