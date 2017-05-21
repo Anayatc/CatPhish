@@ -34,6 +34,9 @@ I acknowledge this is probably not the most ideal solution, and my intention is 
 1. Python 3.6
 2. Imports: python-whois; requests, urllib.parse
 3. Flask
+4. Bootstrap - frontend
+5. Javascript
+6. CSS
 
 ## Testing
 py.test - to test the script in it's ability to follow short urls to their destination, to test stripping the url of subdomains and other infromation to return just the domain name, to test the what the who.is look up returns
