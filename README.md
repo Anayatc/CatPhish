@@ -6,11 +6,11 @@ A Flask based web app to help people verify authenticity of urls sent to them.
 ## Project Objective
    Built on Flask, The concept is to take a input URL from the user, run it through who.is, then to find out if the 
 registration matches who the sender claims it to be by asking the user who they think the email or text message with the 
-potential phish is from.
+potential phish is from.  
 </br>
    Initially I intended for this project to be based on Django, however after some experimentation realised that Flask would
 be far more suitable for what will eventually be a single page website, allowing the user to input just a url and type 
-in whom they think sent them the URL. 
+in whom they think sent them the URL.  
 </br>
    The idea for this project was born from friends and relatives forwarding me emails or text messages in a panic
 thinking that their details had been compromised, in some cases they had already filled in their details and had their 
