@@ -27,8 +27,8 @@ we found a few common occurrences:
 I acknowledge this is probably not the most ideal solution, and my intention is to build in many more factors to authenticate against in the future.
 
 ## Contributors
-Anayat Chowdhury - Backend  
-Atib Chowdhury - Frontend
+[Anayat Chowdhury](https://github.com/Anayatc) - Backend  
+[Atib Chowdhury](https://github.com/atib) - Frontend
 
 ## Stack Elements:
 1. Python 3.6
