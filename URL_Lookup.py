@@ -51,8 +51,6 @@ def check_sender(sender):
     else:
         return False
 
-
-
 print(url_resolve('amazon.com'))
 print(domain_name())
 print(who_is())
