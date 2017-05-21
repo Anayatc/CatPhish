@@ -50,4 +50,4 @@ py.test - to test the script in it's ability to follow short urls to their desti
 6. application should run on local host port 5000
 
 ## Bugs
-As this is still a work in progress I will update this section as the project nears a more complete stage. 
+As this is still a work in progress in it's early stages I will update this section as the project nears a more complete stage. 
