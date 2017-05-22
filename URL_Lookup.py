@@ -33,7 +33,6 @@ def domain_name():
     final_dest = url_resolve(url_with_scheme)
     parsed_uri = urlparse(final_dest)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
-    print(domain)
     return domain
 
 
@@ -41,14 +40,12 @@ def domain_name():
 def who_is():
     domain = domain_name()
     w = whois.whois(domain)
-    print(w.text.lower())
     return w.text.lower()
 
 
 # check if sender matches who.is data
 def check_sender(sender):
     who_is_data = who_is()
-    print(who_is_data)
     if who_is_data.find(sender) >= 0:
         return True
     else:
