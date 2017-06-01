@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import whois
 
 
-# takes url as input and returns full url if url has been shortened.
+# takes url as input and returns full url if url has been shortened and/or redirected.
 def url_resolve(url):
 
     if url.startswith('http://') or url.startswith('https://'):
